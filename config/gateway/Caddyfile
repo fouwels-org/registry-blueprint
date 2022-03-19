@@ -15,6 +15,20 @@ registry2.lagoni.co.uk {
 		mk JDJhJDE0JFU2Q0k5SDhBMi50NXYyMTJCQml4QXViZUdLbzl1Z1hVd0NaVzd6QUUxcEVOUjBMZHYyaHZp
 	}
 
+	log {
+		output stdout
+		format filter {
+			fields {
+				request>headers delete
+				request>tls delete
+				common_log delete
+				resp_headers delete
+			}
+			wrap json
+		}
+		level INFO
+	}
+
 	tls kaelan@fouwels.com {
 		protocols tls1.3 tls1.3
 		curves x25519
