@@ -5,7 +5,7 @@
 COMPOSE=docker compose
 STACK= -f registry.yml -f proxy.yml
 
-.PHONY: pull, up, up-d, down, logs, certbot-request, certbot-renew, certbot-nginx
+.PHONY: pull, up, up-d, down, logs
 
 # Docker
 pull:
