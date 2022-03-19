@@ -1,14 +1,19 @@
-# SPDX-FileCopyrightText: 2021 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
+# SPDX-FileCopyrightText: 2022 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
 #
 # SPDX-License-Identifier: MIT
 {
 	http_port 80
 	https_port 443
-	acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+	acme_ca https://acme-v02.api.letsencrypt.org/directory
+	# acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 	admin off
 }
 registry2.lagoni.co.uk {
 	reverse_proxy /* registry:5000
+	basicauth bcrypt {
+		kf JDJhJDE0JDRBd1A1bktRZERSakd0VW1PTm02RXUxMExFM3NVRU9jNTh0Q3VMNXFwSVhGY3VBT2l2NVN5
+		mk JDJhJDE0JFU2Q0k5SDhBMi50NXYyMTJCQml4QXViZUdLbzl1Z1hVd0NaVzd6QUUxcEVOUjBMZHYyaHZp
+	}
 
 	tls kaelan@fouwels.com {
 		protocols tls1.3 tls1.3
