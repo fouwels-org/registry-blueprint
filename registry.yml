@@ -5,11 +5,11 @@
 services:
   registry:
     image: registry:2.8.1
+    restart: unless-stopped
     volumes:
       - registry_data:/var/lib/registry
     networks:
       registry:
-    restart: unless-stopped
     deploy:
       resources:
         limits:

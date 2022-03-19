@@ -5,15 +5,17 @@
 services:
   proxy:
     image: caddy:2.4.6-alpine
+    restart: unless-stopped
+    ports:
+      - 443:443
     volumes:
       - proxy_data:/data
-    networks:
-      proxy:
-      registry:
-    restart: unless-stopped
     configs:
       - source: proxy_config
         target: /etc/caddy/Caddyfile
+    networks:
+      proxy:
+      registry:
     deploy:
       resources:
         limits:
