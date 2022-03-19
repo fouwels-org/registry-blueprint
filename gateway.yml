@@ -3,18 +3,18 @@
 # SPDX-License-Identifier: MIT
 ---
 services:
-  proxy:
+  gateway:
     image: caddy:2.4.6-alpine
     restart: unless-stopped
     ports:
       - 443:443
     volumes:
-      - proxy_data:/data
+      - gateway_data:/data
     configs:
-      - source: proxy_config
+      - source: gateway_config
         target: /etc/caddy/Caddyfile
     networks:
-      proxy:
+      gateway:
       registry:
     deploy:
       resources:
@@ -22,11 +22,11 @@ services:
           memory: 0.5gb
 
 volumes:
-  proxy_data:
+  gateway_data:
 
 configs:
-  proxy_config:
-    file: ./config/proxy/Caddyfile
+  gateway_config:
+    file: ./config/gateway/Caddyfile
 
 networks:
-  proxy:
+  gateway:

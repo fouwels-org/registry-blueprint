@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 COMPOSE=docker compose
-STACK= -f registry.yml -f proxy.yml
+STACK= -f registry.yml -f gateway.yml
 
 .PHONY: pull, up, up-d, down, logs
 
