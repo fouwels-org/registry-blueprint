@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 COMPOSE=docker compose
-STACK= -f postgres.yml
+STACK= -f registry.yml -f proxy.yml
 
 .PHONY: pull, up, up-d, down, logs, certbot-request, certbot-renew, certbot-nginx
 

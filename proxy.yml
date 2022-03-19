@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2021 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
+#
+# SPDX-License-Identifier: MIT
+---
+services:
+  proxy:
+    image: caddy:2.4.6-alpine
+    volumes:
+      - proxy_data:/data
+    networks:
+      proxy:
+      registry:
+    restart: unless-stopped
+    configs:
+      - source: proxy_config
+        target: /etc/caddy/Caddyfile
+    deploy:
+      resources:
+        limits:
+          memory: 0.5gb
+
+volumes:
+  proxy_data:
+
+configs:
+  proxy_config:
+    file: ./config/proxy/Caddyfile
+
+networks:
+  proxy:

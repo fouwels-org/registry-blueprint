@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2021 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
+#
+# SPDX-License-Identifier: MIT
+{
+	http_port 80
+	https_port 443
+	acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+	admin off
+}
+registry2.lagoni.co.uk {
+	reverse_proxy /* registry:5000
+
+	tls kaelan@fouwels.com {
+		protocols tls1.3 tls1.3
+		curves x25519
+		key_type rsa2048
+	}
+}

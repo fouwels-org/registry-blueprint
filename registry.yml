@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2021 Kaelan Thijs Fouwels <kaelan.thijs@fouwels.com>
+#
+# SPDX-License-Identifier: MIT
+---
+services:
+  registry:
+    image: registry:2.8.1
+    volumes:
+      - registry_data:/var/lib/registry
+    networks:
+      registry:
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 0.5gb
+
+volumes: 
+  registry_data:
+
+networks:
+  registry:
