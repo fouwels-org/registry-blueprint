@@ -33,6 +33,6 @@ registry2.lagoni.co.uk {
 	tls kaelan@fouwels.com {
 		protocols tls1.3 tls1.3
 		curves x25519
-		key_type rsa2048
+		key_type rsa4096
 	}
 }
